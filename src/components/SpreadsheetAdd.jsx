@@ -9,7 +9,7 @@ export const SpreadsheetAdd = () => {
   return (
     <div className="spreadsheetAdd">
       <details>
-        <summary>add csv</summary>
+        <summary className="addcsv">add csv</summary>
         <div className="inputSection">
           <input
             type="file"

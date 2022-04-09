@@ -33,6 +33,7 @@ span.emoji {
 #shiftForm {
   text-align: center;
   display:grid;
+  margin-bottom: 40px;
 }
 
 label {
@@ -62,7 +63,7 @@ nav {
   /* border: 1px solid black; */
   width: fit-content;
   position: fixed;
-  top:24vh;
+  top:20vh;
   left: 1vw;
   font-weight: 500;
 }
@@ -75,20 +76,12 @@ ul {
 }
 
 li {
-  margin: 30px 20px 30px 20px;
+  margin: 40px 20px 30px 20px;
 }
 
 li:hover {
   color: #05e005;
   cursor: pointer;
-}
-
-.spreadsheetAdd {
-  /* border: 1px solid black; */
-  position: relative;
-  margin: 40px auto 40px auto;
-  text-align: center;
-  widtH: 200px;
 }
 
 details[open] summary ~ * {
@@ -105,12 +98,13 @@ details > summary {
 }
 
 summary {
+  text-align: center;
   margin: 20px;
   border: 1px black solid;
   border-radius: 4px;
-  padding: 10px 20px 10px 20px;
-  width:fit-content;
-  margin: 0 auto 0 auto;
+  width:250px;
+  margin: 10px auto 10px auto;
+  justify-content: center;
 }
 
 summary:hover {
@@ -118,14 +112,12 @@ summary:hover {
 }
 
 label {
-  widtH: 230px;
+  width: 230px;
   text-align: left;
   margin: 5px auto 5px auto;
 }
 
 .inputSection {
-  /* border: 1px solid black; */
-  margin: 20px 0 46px 0;
   margin-left: auto;
   margin-right: auto;
   width: 250px;
@@ -133,4 +125,18 @@ label {
 
 .fileInput {
   width: 500px;
+}
+
+.addShift {
+  height: 90px;
+  line-height: 90px;
+}
+
+.addcsv{
+  height: 30px;
+  line-height: 30px;
+}
+
+details {
+  margin-bottom: 10px;
 }

@@ -11,7 +11,7 @@ export const ShiftAdd = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(`state submitted:`, shift);
-    
+
   };
 
   const handleInputChange = (event) => {
@@ -24,8 +24,8 @@ export const ShiftAdd = (props) => {
   };
   return (
     <details>
-      <summary>add shift</summary>
-      <div className="inputSection">
+      <summary className="addShift">add shift</summary>
+      <div>
         <form id="shiftForm" name="shiftAdd" onSubmit={handleSubmit}>
           <label>
             <input
