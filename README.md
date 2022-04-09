@@ -8,10 +8,10 @@ rvdemonk
 ## features
 
 ### input
-Users had shifts they have worked in csv form or ui input.
+Users add shifts they have worked via ui input or csv upload.
 
-### config
+### configuration
 Users set their pay rates for various times and days, including specific rates for Sundays and public holidays.
 
-### out
-Interactive calendar and summaries showing payment earned and shifts worked.
+### output
+Interactive calendar and summaries show payment earned and shifts worked.
