@@ -17,6 +17,15 @@
   cursor: pointer;
 }
 
+#inputContainer {
+  /* border: 1px solid black; */
+  /* border-radius: 8px; */
+  width: 50vw;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 16px;
+}
+
 span.emoji {
   font-size: inherit;
 }
@@ -45,8 +54,8 @@ button {
 
 }
 
-button.addbtn {
-  margin-top: 10px;
+.addbtn {
+  margin: 8px auto 8px auto;
 }
 
 nav {
@@ -55,6 +64,7 @@ nav {
   position: fixed;
   top:24vh;
   left: 1vw;
+  font-weight: 500;
 }
 
 ul {
@@ -81,6 +91,15 @@ li:hover {
   widtH: 200px;
 }
 
+details[open] summary ~ * {
+  animation: sweep .25s ease-in-out;
+}
+
+@keyframes sweep {
+  0%    {opacity: 0; transform: translateY(-10px)}
+  100%  {opacity: 1; transform: translateY(0)}
+}
+
 details > summary {
   list-style: none;
 }
@@ -88,15 +107,30 @@ details > summary {
 summary {
   margin: 20px;
   border: 1px black solid;
+  border-radius: 4px;
   padding: 10px 20px 10px 20px;
+  width:fit-content;
+  margin: 0 auto 0 auto;
 }
 
-input.fileInput {
-  width:fit-content;
+summary:hover {
+  cursor: pointer;
 }
 
 label {
   widtH: 230px;
   text-align: left;
-  margin: 0 auto 0 auto;
+  margin: 5px auto 5px auto;
+}
+
+.inputSection {
+  /* border: 1px solid black; */
+  margin: 20px 0 46px 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 250px;
+}
+
+.fileInput {
+  width: 500px;
 }

@@ -20,10 +20,12 @@ export default class App extends Component {
     return (
       <React.Fragment>
         <div className='App'>
-            <h1 id='title'>paycheck 🤑</h1>
-              <Nav />
-            <ShiftAdd />
-            <SpreadsheetAdd />
+            <h1 id='title'>paycheck🤑</h1>
+            <Nav />
+            <div id='inputContainer'>
+              <ShiftAdd />
+              <SpreadsheetAdd />
+            </div>
         </div>
       </React.Fragment>
     )
