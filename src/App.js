@@ -1,25 +1,31 @@
-import logo from './logo.svg';
+import React, { Component } from 'react'
+import { ShiftAdd } from './components/ShiftAdd';
+
 import './App.css';
+import Nav from './components/Nav';
+import { SpreadsheetAdd } from './components/SpreadsheetAdd';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+export default class App extends Component {
+  construct() {
+    this.state = {
+      username: null,
+      loggedIn: false,
+    }
+  }
+
+  addShift() {}
+  
+  render() {
+    return (
+      <React.Fragment>
+        <div className='App'>
+            <h1 id='title'>paycheck 🤑</h1>
+              <Nav />
+            <ShiftAdd />
+            <SpreadsheetAdd />
+        </div>
+      </React.Fragment>
+    )
+  }
 }
-
-export default App;
