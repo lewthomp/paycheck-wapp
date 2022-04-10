@@ -5,8 +5,8 @@ const Nav = () => {
     <nav>
       <ul>
         <li>shifts</li>
-        <li>rates</li>
-        <li>pay</li>
+        <li>money</li>
+        <li>settings</li>
       </ul>
     </nav>
   );

@@ -20,10 +20,8 @@
 #inputContainer {
   /* border: 1px solid black; */
   /* border-radius: 8px; */
-  width: 50vw;
   margin-right: auto;
   margin-left: auto;
-  padding: 16px;
 }
 
 span.emoji {
@@ -31,9 +29,12 @@ span.emoji {
 }
 
 #shiftForm {
-  text-align: center;
+  width: 250px;
+  margin-right: auto;
+  margin-left: auto;
   display:grid;
-  margin-bottom: 40px;
+  margin-top: 20px;
+  padding: 20px 0 20px 0;
 }
 
 label {
@@ -42,21 +43,24 @@ label {
 
 input {
   font-size: 20px;
-  margin: 0 4px 0 4px;
   width: 100px;
   border-radius: 3px;
+  margin: 8px;
+  margin-left: 30px;
 }
 
 button {
   font-size: 20px;
   width: 80px;
-  margin: 0 auto 0 auto;
+  margin: 10px auto 0 auto;
   border-radius: 3px;
 
 }
 
 .addbtn {
-  margin: 8px auto 8px auto;
+  margin: 20px auto 8px auto;
+  width: 100px;
+  height: 50px;
 }
 
 nav {
@@ -64,7 +68,7 @@ nav {
   width: fit-content;
   position: fixed;
   top:20vh;
-  left: 1vw;
+  /* left: 1vw; */
   font-weight: 500;
 }
 
@@ -85,7 +89,7 @@ li:hover {
 }
 
 details[open] summary ~ * {
-  animation: sweep .25s ease-in-out;
+  animation: sweep .25s ease-out;
 }
 
 @keyframes sweep {
@@ -93,15 +97,15 @@ details[open] summary ~ * {
   100%  {opacity: 1; transform: translateY(0)}
 }
 
+
 details > summary {
   list-style: none;
 }
 
 summary {
   text-align: center;
-  margin: 20px;
-  border: 1px black solid;
-  border-radius: 4px;
+  border: 2px black solid;
+  border-radius: 5px;
   width:250px;
   margin: 10px auto 10px auto;
   justify-content: center;
@@ -130,6 +134,7 @@ label {
 .addShift {
   height: 90px;
   line-height: 90px;
+  font-weight: 600;
 }
 
 .addcsv{
@@ -139,4 +144,33 @@ label {
 
 details {
   margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 430px) {
+  nav {
+    position: fixed;
+    top: 2vh;
+    left: 100;
+    right: 0vw;
+    margin: 0;
+    text-align: right;
+  }
+  
+  li {
+    font-size: 7vw;
+    margin: 0.4vh;
+    margin-right: 10px;
+  }
+
+  #title {
+    width: 90vw;
+    font-size: 17vw;
+    margin: 16vh auto 0 auto;
+  }
+
+  details {
+    margin: 0 auto 0 auto;
+    position: relative;
+    width: 250px;
+  }
 }
