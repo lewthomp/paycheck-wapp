@@ -1,0 +1,19 @@
+{
+  "name": "paycheck",
+  "version": "1.0.0",
+  "description": "app to calculate earned pay to check against payslip",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "paycheck",
+    "tanay",
+    "bunnings"
+  ],
+  "author": "rvdemonk",
+  "license": "MIT",
+  "dependencies": {
+    "jquery-csv": "^1.0.21"
+  }
+}
