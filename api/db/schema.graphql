@@ -1,5 +1,4 @@
-scalar date
-scalar time
+scalar DateTime
 
 "Demo Department enum; should be user created"
 enum Department {
@@ -11,32 +10,30 @@ enum Department {
 type Shift {
   _id: ID!
   id: Int!
-  date: Date!
-  start: Time!
-  end: Time!
+  start: DateTime!
+  end: DateTime!
   department: Department
 }
 
-type Payrates {
-  startDate: Date!
+type Rates {
+  startDate: DateTime!
   regularHours: Float!
-  afterHours: Float!
-  sundayRates: Float!
-  publicHolidays: Float!
+  afterHours: Float
+  sundayRates: Float
+  publicHolidays: Float
 }
 
 input ShiftInputs {
-  date: Date!
-  start: Time!
-  end: Time!
+  start: DateTime!
+  end: DateTime!
 }
 
 input RatesInputs {
-  startDate: Date!
+  startDate: DateTime!
   regularHours: Float!
-  afterHours: Float!
-  sundayRates: Float!
-  publicHolidays: Float!
+  afterHours: Float
+  sundayRates: Float
+  publicHolidays: Float
 }
 
 ### Top level declarations
@@ -45,7 +42,8 @@ type Query {
   shiftList: [Shift!]!
 }
 
-type Mutations {
+type Mutation {
   setAboutMessage(message: String!): String
   shiftAdd(shift: ShiftInputs!): Shift!
+  setRates(rates: RatesInputs!): Rates!
 }
