@@ -1,22 +1,51 @@
-scalar Date
-scalar Time
+scalar date
+scalar time
+
+"Demo Department enum; should be user created"
+enum Department {
+  VSCO
+  Lifestyles
+  Nursery
+}
 
 type Shift {
-    date: Date!
-    start: Time!
-    end: Time!
+  _id: ID!
+  id: Int!
+  date: Date!
+  start: Time!
+  end: Time!
+  department: Department
 }
 
 type Payrates {
-    regularHours: Float!
-    afterHours: Float!
-    sundayRates: Float!
-    publicHolidays: Float!
+  startDate: Date!
+  regularHours: Float!
+  afterHours: Float!
+  sundayRates: Float!
+  publicHolidays: Float!
+}
+
+input ShiftInputs {
+  date: Date!
+  start: Time!
+  end: Time!
+}
+
+input RatesInputs {
+  startDate: Date!
+  regularHours: Float!
+  afterHours: Float!
+  sundayRates: Float!
+  publicHolidays: Float!
 }
 
 ### Top level declarations
 type Query {
-    about
+  about: String!
+  shiftList: [Shift!]!
 }
 
-type Mutations {}
+type Mutations {
+  setAboutMessage(message: String!): String
+  shiftAdd(shift: ShiftInputs!): Shift!
+}

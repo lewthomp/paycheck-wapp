@@ -1,14 +1,16 @@
 require("dotenv").config();
 const express = require("express");
-// db
-// install handler
+const { connectToDb } = require("./db.js");
+const { installHandler } = require("./api_handler");
+
+installHandler(app);
 
 const app = express();
 const port = process.env.API_SERVER_PORT || 3000;
 
 (async function start() {
   try {
-    //   await connectToDb();
+    await connectToDb();
     app.listen(port, () => {
       console.log(`API server started on port ${port}`);
     });
