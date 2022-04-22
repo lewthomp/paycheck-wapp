@@ -7,6 +7,7 @@ const { getDb, getNextSequence } = require('./db.js');
 //   return shifts;
 // }
 
+// TODO
 function validate(shift) {
   const errors = [];
 }

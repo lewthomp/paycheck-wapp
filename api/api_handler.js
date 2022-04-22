@@ -23,6 +23,7 @@ const resolvers = {
 const apolloServer = new ApolloServer({
   typeDefs: fs.readFileSync('db/schema.graphql', 'utf-8'),
   resolvers,
+  introspection: true,
   formatError: (error) => {
     console.log(error);
     return error;
