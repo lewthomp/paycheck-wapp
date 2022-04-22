@@ -3,7 +3,7 @@
 # dependencies
 /.pnp
 .pnp.js
-node_modules/
+node_modules
 
 # testing
 ui/coverage
@@ -12,14 +12,15 @@ ui/coverage
 .netlify
 build
 
-# misc
-.DS_Store
+# env
+.env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
-ui/.env
-api/.env
+
+# misc
+.DS_Store
 
 npm-debug.log*
 yarn-debug.log*

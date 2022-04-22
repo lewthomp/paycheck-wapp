@@ -1,0 +1,22 @@
+scalar Date
+scalar Time
+
+type Shift {
+    date: Date!
+    start: Time!
+    end: Time!
+}
+
+type Payrates {
+    regularHours: Float!
+    afterHours: Float!
+    sundayRates: Float!
+    publicHolidays: Float!
+}
+
+### Top level declarations
+type Query {
+    about
+}
+
+type Mutations {}
