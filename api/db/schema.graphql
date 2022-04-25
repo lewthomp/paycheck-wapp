@@ -1,49 +1,51 @@
+### Scalars
+
 scalar DateTime
 
-"Demo Department enum; should be user created"
-enum Department {
-  VSCO
-  Lifestyles
-  Nursery
-}
+### Types
 
 type Shift {
   _id: ID!
   id: Int!
   start: DateTime!
   end: DateTime!
-  department: Department
+  created: DateTime!
+  # department: Department
 }
 
-type Rates {
-  startDate: DateTime!
-  regularHours: Float!
-  afterHours: Float
-  sundayRates: Float
-  publicHolidays: Float
+type Payrate {
+  # Each users payrate info is comprised of a list of Payrates
+  id: Int!
+  days: [String!]!
+  periodStart: DateTime!
+  periodEnd: DateTime!
+  holiday: Boolean!
 }
+
+### Inputs
 
 input ShiftInputs {
   start: DateTime!
   end: DateTime!
 }
 
-input RatesInputs {
-  startDate: DateTime!
-  regularHours: Float!
-  afterHours: Float
-  sundayRates: Float
-  publicHolidays: Float
+input PayrateInputs {
+  rate: Float!
+  days: [String!]!
+  holiday: Boolean!
+  periodStart: DateTime!
+  periodEnd: DateTime!
 }
 
-### Top level declarations
+###### Top level declarations
 type Query {
   about: String!
   shiftList: [Shift!]!
+  payrateList: [Payrate!]!
 }
 
 type Mutation {
   setAboutMessage(message: String!): String
   shiftAdd(shift: ShiftInputs!): Shift!
-  setRates(rates: RatesInputs!): Rates!
+  payrateAdd(rates: PayrateInputs!): Payrate!
 }

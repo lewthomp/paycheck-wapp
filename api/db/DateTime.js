@@ -8,8 +8,8 @@ const DateTime = new GraphQLScalarType({
       return value.toISOString();
     },
     parseValue(value) {
-      const dateValue = new Date(value);
-      return Number.isNaN(dateValue.getTime()) ? undefined : dateValue;
+      const datetimeValue = new Date(value);
+      return Number.isNaN(datetimeValue.getTime()) ? undefined : datetimeValue;
     },
     parseLiteral(ast) {
       if (ast.kind === Kind.STRING) {
