@@ -26,16 +26,18 @@ export default class App extends Component {
       }
     }`;
     const data = await graphqlFetch(query);
-    console.log(`** api data loaded with keys: ${Object.keys(data)}`)
+    console.log(`** api data loaded with keys: ${Object.keys(data)}`);
     if (data) {
-      this.setState({ shifts: data.shifts });
+      this.setState({ shifts: data.shiftList });
     }
+    console.log("state:", this.state.shifts)
   }
 
   createShift(shift) {}
 
   render() {
     const shifts = this.state.shifts;
+    console.log(Object.keys(shifts), shifts)
     return (
       <React.Fragment>
         <div className="App">

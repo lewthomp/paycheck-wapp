@@ -3,10 +3,11 @@
 
 // TODO
 // function jsonDateReviver(key, value) {}
+const API_ENDPOINT = "http://localhost:3001/graphql"
 
 export default async function graphqlFetch(query, variables = {}) {
     try {
-        const response = await fetch(window.EVN.UI_API_ENDPOINT, {
+        const response = await fetch(API_ENDPOINT, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ query, variables }),

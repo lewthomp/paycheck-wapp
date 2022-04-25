@@ -2,6 +2,7 @@ import React from "react";
 
 const ShiftRow = ({ shift }) => {
   const [start, end] = [shift.start, shift.end];
+  console.log(typeof start, start);
   return (
     <tr>
       <td>{shift.id}</td>
