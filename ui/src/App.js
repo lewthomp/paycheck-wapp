@@ -13,6 +13,8 @@ export default class App extends Component {
     this.state = {
       shifts: []  
     };
+    this.createShift = this.createShift.bind(this);
+    this.removeShift = this.removeShift.bind(this);
   }
 
   componentDidMount() {
@@ -26,25 +28,39 @@ export default class App extends Component {
       }
     }`;
     const data = await graphqlFetch(query);
-    console.log(`** api data loaded with keys: ${Object.keys(data)}`);
     if (data) {
       this.setState({ shifts: data.shiftList });
     }
-    console.log("state:", this.state.shifts)
   }
 
-  createShift(shift) {}
+  async createShift(shift) {
+    const query = `mutation shiftAdd($shift: shiftInputs!) {
+        shiftAdd(shift: $shift) {
+          id
+        }
+    }`;
+    const variables = { shift }
+    const data = await graphqlFetch(query, variables );
+    if (data) this.loadData();
+  }
+
+    // todo
+  removeShift(shiftId) {
+    const query = ``;
+    const variables = {};
+    // const data = await graphqlFetch(query, variables );
+    // if (data) this.loadData();    
+  }
 
   render() {
     const shifts = this.state.shifts;
-    console.log(Object.keys(shifts), shifts)
     return (
       <React.Fragment>
         <div className="App">
           {/* <Nav /> */}
           <h1 id="title">paycheck🤑</h1>
-            {/* <ShiftAdd /> */}
             <ShiftTable shifts={shifts}/>
+            <ShiftAdd />
         </div>
       </React.Fragment>
     );

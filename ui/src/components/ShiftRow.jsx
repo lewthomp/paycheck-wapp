@@ -1,8 +1,7 @@
 import React from "react";
 
 const ShiftRow = ({ shift }) => {
-  const [start, end] = [shift.start, shift.end];
-  console.log(typeof start, start);
+  const [start, end] = [ new Date(shift.start), new Date(shift.end) ];
   return (
     <tr>
       <td>{shift.id}</td>

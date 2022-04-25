@@ -7,10 +7,10 @@ const ShiftTable = ({ shifts }) => {
     <ShiftRow key={shift.id} shift={shift} />
   ));
   return (
-    <table className="bordered-table">
+    <table style={tableStyles}>
       <thead>
           <tr>
-              <th style={headingStyle}>id</th>
+              <th>id</th>
               <th>date</th>
               <th>start</th>
               <th>end</th>
@@ -23,8 +23,10 @@ const ShiftTable = ({ shifts }) => {
 
 export default ShiftTable;
 
-
-const headingStyle = {
-    margin: '40px',
-    color: 'red',
+const tableStyles = {
+  border: '2px solid black',
+  'borderRadius': '5px',
+  'marginRight': 'auto',
+  'marginLeft': 'auto',
+  width: '70%',
 }
