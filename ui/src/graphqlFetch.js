@@ -1,0 +1,32 @@
+// TODO
+// const dateRegex = new RegExp("");
+
+// TODO
+// function jsonDateReviver(key, value) {}
+
+export default async function graphqlFetch(query, variables = {}) {
+    try {
+        const response = await fetch(window.EVN.UI_API_ENDPOINT, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ query, variables }),
+        })
+        const body = await response.text();
+        // TODO: parse body with json date reviver
+        const result = JSON.parse(body);
+
+        if (result.errors) {
+            // handle errors one at a time
+            const error = result.errors[0];
+            if (error.extensions.code == "BAD_USER_INPUT") {
+                const details = error.extensions.exception.errors.join("\n");
+                alert(`${error.message}: \n ${details}`);
+            } else {
+                alert(`${error.extenions.code}: ${error.message}`)
+            }
+        }
+        return result.data
+    } catch (err) {
+        alert(`## Error occurred during graphqlFetch: \n${err}`)
+    }
+}

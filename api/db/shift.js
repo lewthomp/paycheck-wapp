@@ -6,7 +6,7 @@ const { getDb, getNextSequence } = require('./db.js');
 function validate(shift) {
   const errors = [];
   // end time must be later than start time
-  
+  // date for start and end DateTime object must be equal; shifts cannot be split across days  
 }
 
 async function list() {
