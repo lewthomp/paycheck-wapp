@@ -46,7 +46,8 @@ type Query {
 
 type Mutation {
   setAboutMessage(message: String!): String
-  shiftAdd(shift: ShiftInputs!): Shift!
-  payrateAdd(rates: PayrateInputs!): Payrate!
   
+  shiftAdd(shift: ShiftInputs!): Shift!
+  shiftDelete(id: Int!): Boolean!
+  payrateAdd(rates: PayrateInputs!): Payrate!
 }

@@ -14,7 +14,7 @@ export default class App extends Component {
       shifts: []  
     };
     this.createShift = this.createShift.bind(this);
-    this.removeShift = this.removeShift.bind(this);
+    this.deleteShift = this.deleteShift.bind(this);
   }
 
   componentDidMount() {
@@ -45,11 +45,13 @@ export default class App extends Component {
   }
 
     // todo
-  removeShift(shiftId) {
-    const query = ``;
-    const variables = {};
-    // const data = await graphqlFetch(query, variables );
-    // if (data) this.loadData();    
+  async deleteShift(shiftId) {
+    const query = `mutation shiftDelete($id: Int!) {
+      shiftDelete(id: $id)
+    }`;
+    const { shifts } = this.state;
+     
+
   }
 
   render() {
@@ -60,7 +62,7 @@ export default class App extends Component {
           {/* <Nav /> */}
           <h1 id="title">paycheck🤑</h1>
             <ShiftTable shifts={shifts}/>
-            <ShiftAdd />
+            {/* <ShiftAdd /> */}
         </div>
       </React.Fragment>
     );
