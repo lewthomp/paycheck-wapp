@@ -1,6 +1,8 @@
 /* global db print */
 
 // initial data
+const aboutInit = { id: 1, message: "paycheck api v1.0" };
+
 const shiftsInit = [
     {
         id: 1,
@@ -22,14 +24,16 @@ const shiftsInit = [
     },
 ];
 
-const ratesInit = {};
+const ratesInit = [{}];
 
 // clean db
 print("** Cleaning paycheck db")
+db.about.remove({})
 db.shifts.remove({});
 db.rates.remove({});
 
 print("** Inserting test data")
+db.about.insertOne(aboutInit)
 db.shifts.insertMany(shiftsInit);
 db.rates.insertOne(ratesInit);
 print("** Successfully initialised db with test data");

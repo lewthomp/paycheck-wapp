@@ -24,12 +24,12 @@ type Payrate {
 
 ### Inputs
 
-input ShiftInputs {
+input AddShiftInput {
   start: DateTime!
   end: DateTime!
 }
 
-input PayrateInputs {
+input AddPayrateInput {
   rate: Float!
   days: [String!]!
   holiday: Boolean!
@@ -46,8 +46,10 @@ type Query {
 
 type Mutation {
   setAboutMessage(message: String!): String
+
+  addShift(input: AddShiftInput!): Shift!
+  addPayrate(rates: AddPayrateInput!): Payrate!
   
-  shiftAdd(shift: ShiftInputs!): Shift!
-  shiftDelete(id: Int!): Boolean!
-  payrateAdd(rates: PayrateInputs!): Payrate!
+  deleteShift(id: Int!): Boolean!
+  deletePayrate(id: Int!): Boolean!
 }

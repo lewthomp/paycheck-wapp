@@ -1,17 +1,18 @@
 import React, { Component } from "react";
-import { ShiftAdd } from "./components/ShiftAdd";
-import { SpreadsheetAdd } from "./components/SpreadsheetAdd";
+
+import ShiftAdd from "./components/ShiftAdd";
 import ShiftTable from "./components/ShiftTable";
 import Nav from "./components/Nav";
-import "./App.css";
+import { SpreadsheetAdd } from "./components/SpreadsheetAdd";
 import graphqlFetch from "./graphqlFetch";
-
+import { addShiftQuery } from "./queries.js";
+import "./App.css";
 
 export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      shifts: []  
+      shifts: [],
     };
     this.createShift = this.createShift.bind(this);
     this.deleteShift = this.deleteShift.bind(this);
@@ -22,11 +23,12 @@ export default class App extends Component {
   }
 
   async loadData() {
-    const query = `query {
-      shiftList {
-        id start end created
-      }
-    }`;
+    const query = `
+      query {
+        shiftList {
+          id start end created
+        }
+      }`;
     const data = await graphqlFetch(query);
     if (data) {
       this.setState({ shifts: data.shiftList });
@@ -34,24 +36,24 @@ export default class App extends Component {
   }
 
   async createShift(shift) {
-    const query = `mutation shiftAdd($shift: shiftInputs!) {
-        shiftAdd(shift: $shift) {
-          id
-        }
-    }`;
-    const variables = { shift }
-    const data = await graphqlFetch(query, variables );
+    const query = `
+      mutation 
+        addShift($shift: AddShiftInput!) {
+          addShift(shift: $shift) {
+              id
+          }
+      }`;
+    const variables = { shift };
+    const data = await graphqlFetch(query, variables);
     if (data) this.loadData();
   }
 
-    // todo
+  // todo
   async deleteShift(shiftId) {
     const query = `mutation shiftDelete($id: Int!) {
       shiftDelete(id: $id)
     }`;
     const { shifts } = this.state;
-     
-
   }
 
   render() {
@@ -61,8 +63,8 @@ export default class App extends Component {
         <div className="App">
           {/* <Nav /> */}
           <h1 id="title">paycheck🤑</h1>
-            <ShiftTable shifts={shifts}/>
-            {/* <ShiftAdd /> */}
+          <ShiftTable shifts={shifts} />
+          <ShiftAdd />
         </div>
       </React.Fragment>
     );

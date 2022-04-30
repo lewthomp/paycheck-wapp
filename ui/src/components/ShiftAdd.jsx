@@ -1,63 +1,79 @@
 import React from "react";
-import { useState } from "react";
 
-export const ShiftAdd = (props) => {
-  const [ shift, setShift ] = useState({});
-  // let addShift = props.addShift; // method of root app
-  const addShift = (shift) => {
-    console.log("this is a palceholder");
-  };
+export default class ShiftAdd extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      shift: null,
+      showingValidation: false,
+    };
+  }
 
-  const handleSubmit = (event) => {
+  componentDidUpdate(prevState) {
+    // console.log(this.state.shift);
+  }
+  
+  handleInputChange = (event) => {
     event.preventDefault();
-    console.log(`state submitted:`, shift);
-
+    const { name, value } = event.target;
+    this.setState( prevState => ({
+      shift: { ...prevState, [name]: value }
+    }))
   };
 
-  const handleInputChange = (event) => {
+  async handleSubmit(event) {
     event.preventDefault();
-    const name = event.target.name;
-    const value = event.target.value;
-    const newShift = { ...shift};
-    newShift[name] = value;
-    setShift(newShift);
+    const shift = this.state.shift;
+
   };
-  return (
-    <details>
-      <summary className="addShift">add shift</summary>
-      <div>
-        <form id="shiftForm" name="shiftAdd" onSubmit={handleSubmit}>
-          <label>
-            <input
-              id="dateInput"
-              type="date"
-              name="date"
-              placeholder="today"
-              onChange={handleInputChange}
-            />
-            date
-          </label>
-          <label>
-            <input
-              type="time"
-              name="start"
-              placeholder="start"
-              onChange={handleInputChange}
-            />
-            start
-          </label>
-          <label>
-            <input
-              type="time"
-              name="end"
-              placeholder="end"
-              onChange={handleInputChange}
-            />
-            end
-          </label>
-          <input className="addbtn" type="submit" value="add" />
-        </form>
-      </div>
-    </details>
-  );
-};
+
+  render() {
+    return (
+      <details>
+        <summary className="addShift">add shift</summary>
+        <div>
+          <form id="shiftForm" name="shiftAdd" onSubmit={this.handleSubmit}>
+            <label>
+              <input
+                id="dateInput"
+                type="date"
+                name="date"
+                placeholder="today"
+                onChange={this.handleInputChange}
+              />
+              date
+            </label>
+            <label>
+              <input
+                type="time"
+                name="start"
+                placeholder="start"
+                onChange={this.handleInputChange}
+              />
+              start
+            </label>
+            <label>
+              <input
+                type="time"
+                name="end"
+                placeholder="end"
+                onChange={this.handleInputChange}
+              />
+              end
+            </label>
+            <label>
+              <input
+                type="text"
+                name="notes"
+                placeholder="(optional)"
+                onChange={this.handleInputChange}
+              />
+              notes
+            </label>
+            <input className="addbtn" type="submit" value="add" />
+          </form>
+        </div>
+      </details>
+    );
+  }
+}

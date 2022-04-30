@@ -17,12 +17,16 @@ async function list() {
 
 async function add(_, { shift }) {
   const db = getDb();
-  validate(shift);
-
+  // validate(shift);
   const newShift = Object.assign({}, shift);
   newShift.id = await getNextSequence('shifts');
+  // debugging
+  console.log(`\n DEBUGGING`);
+  console.log(typeof shift)
+  console.log(Object.keys(shift));
+  console.log('\n');
+  //
   const result = await db.collection('shifts').insertOne(newShift);
-  // return new shift pulled from database
   const savedShift = db.collection('shifts').findOne({ _id: result.insertedId });
   return savedShift;
 }

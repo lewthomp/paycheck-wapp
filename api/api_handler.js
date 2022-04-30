@@ -1,6 +1,7 @@
 require("dotenv").config();
 const fs = require("fs");
 const { ApolloServer } = require("apollo-server-express");
+const { ApolloCore } = require('apollo-server-core');
 
 // Data structures
 const DateTime = require('./db/DateTime.js')
@@ -16,8 +17,8 @@ const resolvers = {
   },
   Mutation: {
     setAboutMessage: about.setMessage,
-    shiftAdd: shift.add,
-    payrateAdd: rates.setRates,
+    addShift: shift.add,
+    addPayrate: rates.setRates,
   },
   DateTime
 };
@@ -25,12 +26,15 @@ const resolvers = {
 // Apply GraphQL Middleware
 const apolloServer = new ApolloServer({
   typeDefs: fs.readFileSync('db/schema.graphql', 'utf-8'),
-  resolvers,
+  resolvers,  
   introspection: true,
   formatError: (error) => {
     console.log(error);
     return error;
   },
+  // plugins: [
+  //   ApolloCore.ApolloServerPluginLandingPageDisabled(),
+  // ],
 });
 
 // Handle apollo middleware installation when passed express server app
