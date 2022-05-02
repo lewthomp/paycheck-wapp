@@ -7,17 +7,16 @@ const DateTime = new GraphQLScalarType({
     serialize(value) {
       return value.toISOString();
     },
-    parseValue(value) {
+    parseValue(value) { 
+      // for variable input
       const datetimeValue = new Date(value);
       return Number.isNaN(datetimeValue.getTime()) ? undefined : datetimeValue;
     },
     parseLiteral(ast) {
-      if (ast.kind === Kind.STRING) {
-        const value = new Date(ast.value);
-        return Number.isNaN(value.getTime()) ? undefined : value;
-      }
-      return undefined;
-    },
+      // used for parsing in-place mutation query
+      null
+    }
+    
 })
 
 module.exports = DateTime;

@@ -24,7 +24,7 @@ const shiftsInit = [
     },
 ];
 
-const ratesInit = [{}];
+const ratesInit = {};
 
 // clean db
 print("** Cleaning paycheck db")

@@ -29,12 +29,9 @@ const apolloServer = new ApolloServer({
   resolvers,  
   introspection: true,
   formatError: (error) => {
-    console.log(error);
+    console.log(`# Error occured in apollo server`, error);
     return error;
   },
-  // plugins: [
-  //   ApolloCore.ApolloServerPluginLandingPageDisabled(),
-  // ],
 });
 
 // Handle apollo middleware installation when passed express server app
