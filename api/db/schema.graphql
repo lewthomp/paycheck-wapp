@@ -4,6 +4,11 @@ scalar DateTime
 
 ### Types
 
+type Time {
+  hour: Int!
+  minute: Int!
+}
+
 type Shift {
   _id: ID!
   id: Int!
@@ -14,15 +19,21 @@ type Shift {
 }
 
 type Payrate {
-  # Each users payrate info is comprised of a list of Payrates
   id: Int!
-  days: [String!]!
+  rate: Float!
+  days: [Int!]!
   periodStart: DateTime!
   periodEnd: DateTime!
   holiday: Boolean!
+  created: DateTime!
 }
 
 ### Inputs
+
+input AddTimeInput {
+  hour: Int!
+  minute: Int!
+}
 
 input AddShiftInput {
   start: DateTime!
@@ -32,10 +43,10 @@ input AddShiftInput {
 
 input AddPayrateInput {
   rate: Float!
-  days: [String!]!
-  holiday: Boolean!
-  periodStart: DateTime!
-  periodEnd: DateTime!
+  days: [Int!]!
+  holiday: Boolean! = False
+  periodStart: AddTimeInput!
+  periodEnd: AddTimeInput!
 }
 
 ###### Top level declarations
@@ -50,7 +61,7 @@ type Mutation {
 
   addShift(input: AddShiftInput!): Shift!
   addPayrate(rates: AddPayrateInput!): Payrate!
-  
+
   deleteShift(id: Int!): Boolean!
   deletePayrate(id: Int!): Boolean!
 }
