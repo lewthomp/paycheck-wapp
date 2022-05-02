@@ -2,11 +2,15 @@ import React from 'react';
 import { NavLink } from "react-router-dom";
 
 import Contents from "./Contents.jsx";
+import "./styles/navbar.css";
 
 const NavBar = () => {
     return(
         <nav>
-            <NavLink exact to='/'>home</NavLink>
+            <NavLink to='/shifts'>shifts</NavLink>
+            <NavLink to='/payrates'>rates</NavLink>
+            <NavLink to='/check'>check</NavLink>
+            <a className='login'>login</a>
         </nav>
     )
 }
@@ -14,7 +18,7 @@ const NavBar = () => {
 const Page = () => {
   return (
     <div>
-        {/* <NavBar /> */}
+        <NavBar />
         <Contents />
     </div>
   )

@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* background-color: rgb(96, 223, 96); */
 }
 
 .App {
@@ -19,13 +20,13 @@ body {
 }
 
 h5 {
-  margin: 10px 0 2px 0;
+  margin: 10px 0 0 0;
 }
 
 #title {
   /* border: 1px solid black; */
   text-align: center;
-  font-size: 100px;
+  font-size: 90px;
   position: relative;
   width: 100%;
   margin-top: 10vh;
@@ -33,7 +34,7 @@ h5 {
 
 #title:hover {
   /* color: #05e005; */
-  cursor: pointer;
+  cursor:default;
 }
 
 #inputContainer {

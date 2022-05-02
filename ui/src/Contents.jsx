@@ -9,7 +9,6 @@ const Contents = () => {
   return (
       <Routes>
         <Route path='/' element={<App />}/>
-        <Route element={<NotFound />} />
       </Routes>
   )
 }
