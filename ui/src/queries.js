@@ -1,6 +1,5 @@
-export const addShiftQuery = `
-    mutation addShift($shift: AddShiftInput!) {
-        addShift(shift: $shift) {
-            id
-        }
-}`
+export const addShiftQuery = `mutation addshift($input: AddShiftInput!) {
+    addShift(input: $input) {
+        id
+    }
+}`;

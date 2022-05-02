@@ -43,8 +43,10 @@ span.emoji {
   font-size: inherit;
 }
 
-#shiftForm {
-  width: 250px;
+#addShiftForm {
+  border: 2px solid black;
+  border-radius: 5px;
+  width: 400px;
   margin-right: auto;
   margin-left: auto;
   display:grid;
@@ -52,16 +54,13 @@ span.emoji {
   padding: 20px 0 20px 0;
 }
 
-label {
-  margin: 10px;
-}
-
 input {
   font-size: 20px;
-  width: 100px;
+  width: 220px;
   border-radius: 3px;
   margin: 8px;
-  margin-left: 30px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 button {
@@ -134,6 +133,7 @@ label {
   width: 230px;
   text-align: left;
   margin: 5px auto 5px auto;
+  display: inline;
 }
 
 .inputSection {

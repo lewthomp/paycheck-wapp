@@ -10,7 +10,7 @@ type Shift {
   start: DateTime!
   end: DateTime!
   created: DateTime!
-  department: String
+  notes: String
 }
 
 type Payrate {
@@ -27,7 +27,7 @@ type Payrate {
 input AddShiftInput {
   start: DateTime!
   end: DateTime!
-  department: String
+  notes: String
 }
 
 input AddPayrateInput {

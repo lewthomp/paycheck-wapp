@@ -4,9 +4,11 @@ import ShiftAdd from "./components/ShiftAdd";
 import ShiftTable from "./components/ShiftTable";
 import Nav from "./components/Nav";
 import { SpreadsheetAdd } from "./components/SpreadsheetAdd";
+import "./App.css";
+
 import graphqlFetch from "./graphqlFetch";
 import { addShiftQuery } from "./queries.js";
-import "./App.css";
+
 
 export default class App extends Component {
   constructor() {
@@ -36,24 +38,15 @@ export default class App extends Component {
   }
 
   async createShift(shift) {
-    const query = `
-      mutation 
-        addShift($shift: AddShiftInput!) {
-          addShift(shift: $shift) {
-              id
-          }
-      }`;
-    const variables = { shift };
+    const query = addShiftQuery;
+    const variables = { input: shift };
     const data = await graphqlFetch(query, variables);
     if (data) this.loadData();
   }
 
   // todo
   async deleteShift(shiftId) {
-    const query = `mutation shiftDelete($id: Int!) {
-      shiftDelete(id: $id)
-    }`;
-    const { shifts } = this.state;
+    return null;
   }
 
   render() {
@@ -64,7 +57,7 @@ export default class App extends Component {
           {/* <Nav /> */}
           <h1 id="title">paycheck🤑</h1>
           <ShiftTable shifts={shifts} />
-          <ShiftAdd />
+          <ShiftAdd createShift={this.createShift} />
         </div>
       </React.Fragment>
     );

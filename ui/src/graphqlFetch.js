@@ -20,7 +20,9 @@ export default async function graphqlFetch(query, variables = {}) {
             // handle errors one at a time
             const error = result.errors[0];
             if (error.extensions.code == "BAD_USER_INPUT") {
-                const details = error.extensions.exception.errors.join("\n");
+                console.log(`## graphql fetch BAD USER INPUT`)
+                // const details = error.extensions.exception.errors.join("\n");
+                const details = error.details;
                 alert(`${error.message}: \n ${details}`);
             } else {
                 alert(`${error.extenions.code}: ${error.message}`)
