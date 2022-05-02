@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import ShiftAdd from "./components/ShiftAdd";
 import ShiftTable from "./components/ShiftTable";
+import PayrateTable from "./components/PayrateTable";
 import Nav from "./components/Nav";
 import { SpreadsheetAdd } from "./components/SpreadsheetAdd";
 import "./App.css";
@@ -9,12 +10,12 @@ import "./App.css";
 import graphqlFetch from "./graphqlFetch";
 import { addShiftQuery } from "./queries.js";
 
-
 export default class App extends Component {
   constructor() {
     super();
     this.state = {
       shifts: [],
+      payrates: [],
     };
     this.createShift = this.createShift.bind(this);
     this.deleteShift = this.deleteShift.bind(this);
@@ -25,15 +26,27 @@ export default class App extends Component {
   }
 
   async loadData() {
-    const query = `
-      query {
+    const query = `query loadData {
         shiftList {
           id start end created
+        }
+        payrateList {
+          id rate days 
+          periodStart {
+            hour minute
+          }
+          periodEnd {
+            hour minute
+          }
+          holiday created
         }
       }`;
     const data = await graphqlFetch(query);
     if (data) {
-      this.setState({ shifts: data.shiftList });
+      this.setState({
+        shifts: data.shiftList,
+        payrates: data.payrateList,
+      });
     }
   }
 
@@ -51,11 +64,14 @@ export default class App extends Component {
 
   render() {
     const shifts = this.state.shifts;
+    const payrates = this.state.payrates;
     return (
       <React.Fragment>
         <div className="App">
-          {/* <Nav /> */}
           <h1 id="title">paycheck🤑</h1>
+          <h4>payrates</h4>
+          <PayrateTable payrates={payrates} />
+          <h4>shifts</h4>
           <ShiftTable shifts={shifts} />
           <ShiftAdd createShift={this.createShift} />
         </div>

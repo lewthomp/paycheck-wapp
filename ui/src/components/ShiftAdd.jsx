@@ -41,6 +41,7 @@ export default class ShiftAdd extends React.Component {
         <summary className="addShift">add shift</summary>
         <div>
           <form id="addShiftForm" name="shiftAdd" onSubmit={this.handleSubmit}>
+              <label>date</label>
               <input type="date" name="date" placeholder="today" />
               <label>start</label>
               <input type="time" name="start" placeholder="start" />

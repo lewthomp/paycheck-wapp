@@ -22,8 +22,8 @@ type Payrate {
   id: Int!
   rate: Float!
   days: [Int!]!
-  periodStart: DateTime!
-  periodEnd: DateTime!
+  periodStart: Time!
+  periodEnd: Time!
   holiday: Boolean!
   created: DateTime!
 }

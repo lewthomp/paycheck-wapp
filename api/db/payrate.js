@@ -12,6 +12,6 @@ async function list(_, args) {
   return payrates;
 }
 
-async function add(_, { rates }) {}
+// async function add(_, { rates }) {}
 
 module.exports = { list };

@@ -11,13 +11,3 @@ export const addShiftQuery = `mutation addshift($input: AddShiftInput!) {
         id
         }
     }`;
-
-export const listPayratesQuery = `
-    query listPayrates {
-        payrateList {
-            id rate dates
-            periodStart periodEnd
-            holiday
-            created
-        }
-    }`;
