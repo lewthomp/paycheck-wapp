@@ -5,19 +5,19 @@ const aboutInit = { id: 1, message: "paycheck api v1.0" };
 
 const shiftsInit = [
     {
-        id: 1,
+        id: 0,
         start: new Date("2022-01-01T09:00:00"),
         end: new Date("2022-01-01T17:00:00"),
         created: new Date(),
     },
     {
-        id: 2,
+        id: 1,
         start: new Date("2022-01-13T11:30:00"),
         end: new Date("2022-01-13T15:00:00"),
         created: new Date(),
     },
     {
-        id: 3,
+        id: 2,
         start: new Date("2022-03-10T07:15:00"),
         end: new Date("2022-03-10T12:30:00"),
         created: new Date(),
