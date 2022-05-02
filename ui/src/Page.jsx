@@ -14,7 +14,7 @@ const NavBar = () => {
 const Page = () => {
   return (
     <div>
-        <NavBar />
+        {/* <NavBar /> */}
         <Contents />
     </div>
   )
