@@ -2,7 +2,7 @@ const { UserInputError } = require("apollo-server-express");
 const { getDb, getNextSequence } = require("./db.js");
 
 // TODO
-function validate(rates) {
+function validate(payrate) {
   const errors = [];
 }
 

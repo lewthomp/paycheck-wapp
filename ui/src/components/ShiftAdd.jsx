@@ -14,6 +14,10 @@ export default class ShiftAdd extends React.Component {
     event.preventDefault();
     const form = document.forms.addShiftForm;
     
+    console.log(`time submitted by form:`, form.start.value);
+    console.log(form.end.value);
+    console.log(`type of form submission: `, typeof form.start.value);
+
     const newShift = {
       start: new Date(`${form.date.value}T${form.start.value}`),
       end: new Date(`${form.date.value}T${form.end.value}`),
