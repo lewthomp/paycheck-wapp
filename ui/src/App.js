@@ -3,8 +3,8 @@ import React, { Component } from "react";
 import ShiftAdd from "./components/ShiftAdd";
 import ShiftTable from "./components/ShiftTable";
 import PayrateTable from "./components/PayrateTable";
-import Nav from "./components/Nav";
 import { SpreadsheetAdd } from "./components/SpreadsheetAdd";
+import SignIn from "./components/SignIn";
 import "./App.css";
 
 import graphqlFetch from "./graphqlFetch";
@@ -69,11 +69,12 @@ export default class App extends Component {
       <React.Fragment>
         <div className="App">
           <h1 id="title">paycheck🤑</h1>
+          <SignIn />
           <h4>payrates</h4>
-          <PayrateTable payrates={payrates} />
-          <h4>shifts</h4>
-          <ShiftTable shifts={shifts} />
-          <ShiftAdd createShift={this.createShift} />
+          {/* <PayrateTable payrates={payrates} /> */}
+          {/* <h4>shifts</h4> */}
+          {/* <ShiftTable shifts={shifts} /> */}
+          {/* <ShiftAdd createShift={this.createShift} /> */}
         </div>
       </React.Fragment>
     );

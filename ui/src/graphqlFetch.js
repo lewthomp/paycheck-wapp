@@ -21,7 +21,7 @@ export default async function graphqlFetch(query, variables = {}) {
     if (result.errors) {
       // handle errors one at a time
       const error = result.errors[0];
-      if (error.extensions.code == "BAD_USER_INPUT") {
+      if (error.extensions.code === "BAD_USER_INPUT") {
         console.log(`## graphql fetch BAD USER INPUT`);
         const details = error.details;
         alert(`${error.message}: \n ${details}`);
