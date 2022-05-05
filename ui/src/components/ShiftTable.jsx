@@ -1,8 +1,8 @@
 import React from "react";
-import '../App.css';
+import "../App.css";
 
 const ShiftRow = ({ shift }) => {
-  const [start, end] = [ new Date(shift.start), new Date(shift.end) ];
+  const [start, end] = [new Date(shift.start), new Date(shift.end)];
   return (
     <tr>
       <td>{shift.id}</td>
@@ -22,17 +22,20 @@ const ShiftTable = ({ shifts }) => {
     <ShiftRow key={shift.id} shift={shift} />
   ));
   return (
-    <table>
-      <thead>
+    <div>
+      <h4 style={{ margin: 0, fontSize: 36 }}>shifts</h4>
+      <table>
+        <thead>
           <tr>
-              <th>id</th>
-              <th>date</th>
-              <th>start</th>
-              <th>end</th>
+            <th>id</th>
+            <th>date</th>
+            <th>start</th>
+            <th>end</th>
           </tr>
-      </thead>
-      <tbody>{shiftRows}</tbody>
-    </table>
+        </thead>
+        <tbody>{shiftRows}</tbody>
+      </table>
+    </div>
   );
 };
 

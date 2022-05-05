@@ -11,3 +11,5 @@ export const addShiftQuery = `mutation addshift($input: AddShiftInput!) {
         id
         }
     }`;
+
+export const googleLoginQuery = ``;
