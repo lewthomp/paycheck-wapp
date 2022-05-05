@@ -12,6 +12,7 @@ type UserData {
 type User {
   id: Int!
   name: Str!
+  isSignedIn: Boolean! = False
   userData: UserData!
   joined: DateTime!
 }
