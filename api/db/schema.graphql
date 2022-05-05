@@ -4,6 +4,18 @@ scalar DateTime
 
 ### Types
 
+type UserData {
+  shifts: [Shift]!
+  payrates: [Payrate]!
+}
+
+type User {
+  id: Int!
+  name: Str!
+  userData: UserData!
+  joined: DateTime!
+}
+
 type Time {
   hour: Int!
   minute: Int!
