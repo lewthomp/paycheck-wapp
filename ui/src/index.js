@@ -1,13 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
 import { BrowserRouter as Router } from "react-router-dom";
-
+import { Auth0Provider } from "@auth0/auth0-react";
 import Page from "./Page";
 
 const root = (
   <Router>
-    <Page />
+    <Auth0Provider
+      domain="dev-3rv11wmi.us.auth0.com"
+      clientId="NW6jHIIDRpXfk9fZVL7FgeG7XfxYwEAz"
+      redirectUri={window.location.origin}
+    >
+      <Page />
+    </Auth0Provider>
   </Router>
 );
 

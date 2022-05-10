@@ -10,15 +10,26 @@ const NavBar = () => {
             <NavLink to='/shifts'>shifts</NavLink>
             <NavLink to='/payrates'>rates</NavLink>
             <NavLink to='/check'>check</NavLink>
-            <a className='login'>login</a>
+            <NavLink to='/login' className='login'>login</NavLink>
         </nav>
     )
+}
+
+const Header = () => {
+  return (
+    <div>
+      <NavLink to='/'>
+        <h1 id="title">paycheck🤑</h1>
+      </NavLink>
+    </div>
+  )
 }
 
 const Page = () => {
   return (
     <div>
         <NavBar />
+        <Header />
         <Contents />
     </div>
   )

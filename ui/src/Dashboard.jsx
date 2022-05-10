@@ -68,7 +68,6 @@ export default class Dashboard extends Component {
     return (
       <React.Fragment>
         <div className="App">
-          <h1 id="title">paycheck🤑</h1>
           <h3>dashboard</h3>
           <p>payrates</p>
           <PayrateTable payrates={payrates} />
