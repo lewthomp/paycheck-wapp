@@ -15,12 +15,14 @@ const payrate = require("./db/payrate.js");
 const resolvers = {
   Query: {
     about: about.getMessage,
+    shiftGet: shift.get,
     shiftList: shift.list,
     payrateList: payrate.list,
   },
   Mutation: {
     setAboutMessage: about.setMessage,
-    addShift: shift.add,
+    shiftAdd: shift.add,
+    shiftRemove: shift.remove,
   },
   DateTime,
 };

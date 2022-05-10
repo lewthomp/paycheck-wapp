@@ -28,6 +28,15 @@ type Payrate {
   created: DateTime!
 }
 
+type User {
+  id: Int!
+  name: String!
+  created: DateTime!
+  payrates: [Payrate]
+  shifts: [Shift]
+
+}
+
 ### Inputs
 
 input AddTimeInput {
@@ -52,16 +61,20 @@ input AddPayrateInput {
 ###### Top level declarations
 type Query {
   about: String!
+
+  shiftGet(id: Int!): Shift!
   shiftList: [Shift!]!
+  
   payrateList: [Payrate!]!
 }
 
 type Mutation {
   setAboutMessage(message: String!): String
 
-  addShift(input: AddShiftInput!): Shift!
+  shiftAdd(input: AddShiftInput!): Shift!
+  shiftRemove(id: Int!): Boolean!
+
+  deletePayrate(id: Int!): Boolean!
   addPayrate(rates: AddPayrateInput!): Payrate!
 
-  deleteShift(id: Int!): Boolean!
-  deletePayrate(id: Int!): Boolean!
 }

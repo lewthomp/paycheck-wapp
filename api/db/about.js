@@ -1,6 +1,5 @@
 const DB = require('./db.js');
 
-// broken
 async function setMessage(_, { message }) {
   const db = DB.getDb();
   await db.about.removeOne({ id: 1 });

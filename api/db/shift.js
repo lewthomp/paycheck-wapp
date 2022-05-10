@@ -1,7 +1,6 @@
 const { UserInputError } = require('apollo-server-express');
 const { getDb, getNextSequence } = require('./db.js');
 
-// TODO
 function validate(shift) {
   const errors = [];
   console.log(`-> Validating shift input`);
@@ -42,4 +41,24 @@ async function add(_, args) {
   return savedShift;
 }
 
-module.exports = { list, add };
+async function remove(_, { id }) {
+  const db = getDb();
+  const shift = await db.collection('shifts').findOne({ id });
+  try {
+    console.log(`Removing shift ${id}`)
+    await db.collection('shifts').deleteOne({ _id: shift._id});
+  } catch (error) {
+    console.log(`Error removing shift from db: ${error}`);
+    return false
+  }
+  return true;
+}
+
+
+async function get(_, { id }) {
+  const db = getDb();
+  const shift = await db.collection('shifts').findOne({ id });
+  return shift;
+}
+
+module.exports = { get, list, add, remove };

@@ -10,7 +10,7 @@ import "./App.css";
 import graphqlFetch from "./graphqlFetch";
 import { addShiftQuery } from "./queries.js";
 
-export default class App extends Component {
+export default class Dashboard extends Component {
   constructor() {
     super();
     this.state = {
@@ -69,9 +69,10 @@ export default class App extends Component {
       <React.Fragment>
         <div className="App">
           <h1 id="title">paycheck🤑</h1>
-          <h4>payrates</h4>
+          <h3>dashboard</h3>
+          <p>payrates</p>
           <PayrateTable payrates={payrates} />
-          <h4>shifts</h4>
+          <p>shifts</p>
           <ShiftTable shifts={shifts} />
           <ShiftAdd createShift={this.createShift} />
         </div>
