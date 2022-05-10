@@ -12,6 +12,7 @@ type Time {
 type Shift {
   _id: ID!
   id: Int!
+  userId: Int!
   start: DateTime!
   end: DateTime!
   created: DateTime!
@@ -20,6 +21,7 @@ type Shift {
 
 type Payrate {
   id: Int!
+  userId: Int! 
   rate: Float!
   days: [Int!]!
   periodStart: Time!
@@ -31,10 +33,10 @@ type Payrate {
 type User {
   id: Int!
   name: String!
+  loggedIn: Boolean! = False
   created: DateTime!
   payrates: [Payrate]
   shifts: [Shift]
-
 }
 
 ### Inputs
@@ -62,9 +64,11 @@ input AddPayrateInput {
 type Query {
   about: String!
 
+  userList: [User!]!
+
   shiftGet(id: Int!): Shift!
   shiftList: [Shift!]!
-  
+
   payrateList: [Payrate!]!
 }
 
@@ -76,5 +80,4 @@ type Mutation {
 
   deletePayrate(id: Int!): Boolean!
   addPayrate(rates: AddPayrateInput!): Payrate!
-
 }

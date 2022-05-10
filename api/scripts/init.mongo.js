@@ -2,6 +2,12 @@
 // initial data
 const aboutInit = { id: 1, message: "paycheck api v1.0" };
 
+const userInit = {
+  id: 0,
+  name: "lewis",
+  created: new Date(),
+};
+
 const shiftsInit = [
   {
     id: 0,
@@ -20,6 +26,7 @@ const shiftsInit = [
 const payratesInit = [
   {
     id: 0,
+    userId: userInit.id,
     rate: 28.9,
     days: [0, 1, 2, 3, 4, 5], // mon-sat
     holiday: false,
@@ -30,6 +37,7 @@ const payratesInit = [
   },
   {
     id: 1,
+    userId: userInit.id,
     rate: 35.5,
     days: [6], // sunday
     holiday: false,
@@ -46,11 +54,13 @@ db.about.remove({});
 db.shifts.remove({});
 db.payrates.remove({});
 db.rates.remove({}); // for safety
+db.users.remove({});
 
 print("** Inserting test data");
 db.about.insertOne(aboutInit);
 db.shifts.insertMany(shiftsInit);
 db.payrates.insertMany(payratesInit);
+db.users.insertOne(userInit);
 print("** Successfully initialised db with test data");
 
 // initialize counter
@@ -62,6 +72,10 @@ db.counters.insert({ _id: "shifts", current: initShiftsCount });
 const initPayratesCount = db.payrates.count();
 db.counters.remove({ _id: "payrates" });
 db.counters.insert({ _id: "payrates", current: initPayratesCount });
+
+const initUSersCount = db.users.count();
+db.counters.remove({ _id: "users" });
+db.counters.insert({ _id: "users", current: initPayratesCount });
 print("** Successfully initialised counter");
 
 // create indexes

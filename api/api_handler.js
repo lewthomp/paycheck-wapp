@@ -7,6 +7,7 @@ const { ApolloCore } = require("apollo-server-core");
 const DateTime = require("./db/DateTime.js");
 const Time = require("./db/Time.js");
 
+const user = require("./db/user.js");
 const about = require("./db/about.js");
 const shift = require("./db/shift.js");
 const payrate = require("./db/payrate.js");
@@ -15,6 +16,7 @@ const payrate = require("./db/payrate.js");
 const resolvers = {
   Query: {
     about: about.getMessage,
+    userList: user.list,
     shiftGet: shift.get,
     shiftList: shift.list,
     payrateList: payrate.list,
