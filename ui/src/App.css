@@ -182,6 +182,13 @@ th, tr {
   text-align: center;
 }
 
+.profile-container {
+  width: 50%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 @media only screen and (max-width: 430px) {
   nav {
     position: fixed;

@@ -33,7 +33,7 @@ type Payrate {
 type User {
   id: Int!
   name: String!
-  loggedIn: Boolean! = False
+  loggedIn: Boolean!
   created: DateTime!
   payrates: [Payrate]
   shifts: [Shift]

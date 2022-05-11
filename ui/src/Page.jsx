@@ -9,7 +9,8 @@ const NavBar = () => {
         <nav>
             <NavLink to='/shifts'>shifts</NavLink>
             <NavLink to='/payrates'>rates</NavLink>
-            <NavLink to='/check'>check</NavLink>
+            {/* <NavLink to='/check'>check</NavLink> */}
+            <NavLink to='/profile'>profile</NavLink>
             <NavLink to='/login' className='login'>login</NavLink>
         </nav>
     )

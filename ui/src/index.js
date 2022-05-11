@@ -10,6 +10,8 @@ const root = (
       domain="dev-3rv11wmi.us.auth0.com"
       clientId="NW6jHIIDRpXfk9fZVL7FgeG7XfxYwEAz"
       redirectUri={window.location.origin}
+      audience="http://localhost:3001/graphql"
+      scope="read:current_user update:current_user_metadata"
     >
       <Page />
     </Auth0Provider>

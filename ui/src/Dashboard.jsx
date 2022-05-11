@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import ShiftAdd from "./components/ShiftAdd";
 import ShiftTable from "./components/ShiftTable";
 import PayrateTable from "./components/PayrateTable";
-import Nav from "./components/Nav";
 import { SpreadsheetAdd } from "./components/SpreadsheetAdd";
 import "./App.css";
 
